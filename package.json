@@ -1,0 +1,14 @@
+{
+  "name": "net.kwxxw.yamachan-web-unit",
+  "displayName": "YamachanWebUnit",
+  "version": "1.0.0",
+  "unity": "2019.4",
+  "description": "Request sender.",
+  "author": {
+    "name": "kwxxw",
+    "url": "https://yamadev.booth.pm"
+  },
+  "vpmDependencies": {
+    "com.vrchat.worlds": ">=3.6.0"
+  }
+}
