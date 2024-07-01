@@ -8,6 +8,9 @@
     "name": "kwxxw",
     "url": "https://yamadev.booth.pm"
   },
+  "legacyFolders": {
+    "Assets\\Yamadev\\YamachanWebUnit": "03bb4b120d5b9b849b8096e44bcbe129"
+  },
   "vpmDependencies": {
     "com.vrchat.worlds": ">=3.6.0"
   }
