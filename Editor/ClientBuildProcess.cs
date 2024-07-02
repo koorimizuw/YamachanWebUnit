@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UdonSharp;
+using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
@@ -12,18 +13,16 @@ namespace Yamadev.YamachanWebUnit.Editor
     {
         public int callbackOrder => -1;
 
-        public void OnProcessScene(Scene scene, BuildReport report)
-        {
-            GenerateUrls();
-        }
+        public void OnProcessScene(Scene scene, BuildReport report) => GenerateUrls();
 
         void GenerateUrls()
         {
             Client[] clients = Resources.FindObjectsOfTypeAll<Client>();
-            if (clients.Length == 0) return;
 
             foreach (Client client in clients)
             {
+                if (!AssetDatabase.GetAssetOrScenePath(client).Contains(".unity")) continue;
+
                 UdonSharpBehaviour udon = client.GetComponent<UdonSharpBehaviour>();
                 int maxLength = (int)udon.GetProgramVariable("MaxLength");
                 string api = (string)udon.GetProgramVariable("ApiBase");
@@ -34,7 +33,7 @@ namespace Yamadev.YamachanWebUnit.Editor
                     VRCUrl url = new VRCUrl($"rtsp://{api}/vrchat/set?i={i/256}&b={i%256}");
                     urls.Add(url);
                 }
-                udon.SetVariable("Urls", urls.ToArray());
+                udon.SetProgramVariable("Urls", urls.ToArray());
             }
         }
     }
