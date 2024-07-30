@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using VRC.SDKBase;
 
-namespace Yamadev.YamachanWebUnit.Editor
+namespace Yamadev.YamachanWebUnit
 {
     public class ClientBuildProcess : IProcessSceneWithReport
     {
