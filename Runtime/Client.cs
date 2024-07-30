@@ -9,12 +9,13 @@ using System.Text;
 
 namespace Yamadev.YamachanWebUnit
 {
-    [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
+    [RequireComponent(typeof(VRCAVProVideoPlayer))]
+    [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class Client : UdonSharpBehaviour
     {
         public int SendTimes = 2;
         public int MaxLength = 100;
-        public string ApiBase;
+        public string ApiBase = "api.yamachan.moe";
         public VRCUrl[] Urls;
 
         VRCAVProVideoPlayer _player;
